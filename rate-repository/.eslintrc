@@ -7,6 +7,12 @@
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "babelOptions": {
+      "configFile": "E:\\códigos\\fullstack\\rate-repository\\rate-repository\\babel.config.js" // <- workspace relative path
+    }
+  },
   "env": {
     "react-native/react-native": true
   },
