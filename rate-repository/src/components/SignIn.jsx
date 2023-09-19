@@ -34,7 +34,7 @@ const SignIn = () => {
     try {
         await signIn({ username, password });
        
-      navigate('/')
+      navigate('/repository-list')
         
     } catch (e) {
       console.log(e);

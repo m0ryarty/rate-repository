@@ -21,7 +21,11 @@ fetchPolicy: 'cache-and-network'
     
     await authStorage.removeAccessToken()
     await client.resetStore()
-    navigate('/sign-in')
+    navigate('/')
+  }
+
+  if (result.loading) {
+    return
   }
   
   
@@ -29,10 +33,10 @@ fetchPolicy: 'cache-and-network'
     <ScrollView horizontal style={theme.tabContainer}>
       {result.data.me
         ?<>
-          <AppBarTab tabTitle= 'Repositories' to='/' />          
+          <AppBarTab tabTitle= 'Repositories' to='/repository-list' />          
           < AppBarTab tabTitle='Sign Out' onPress={signOut} />
         </>
-        : < AppBarTab tabTitle='Sign In' to='/sign-in' />
+        : < AppBarTab tabTitle='Sign In' to='/' />
       }
     </ScrollView>)
   

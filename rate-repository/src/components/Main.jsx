@@ -19,8 +19,8 @@ const Main = () => {
     <View style={styles.container}>
       <AppBar/>      
       <Routes>
-        <Route path='/' element={<RepositoryList />} />
-        <Route path='/sign-in' element={<SignIn />} exact />
+        <Route path='/repository-list' element={<RepositoryList />} exact />
+        <Route path='/' element={<SignIn />} exact />
         
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
