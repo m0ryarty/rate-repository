@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { useField } from 'formik';
 
-import TextInput from './TextInput';
-import Text from './Text';
+import TextInput from './basic/TextInput';
+import Text from './basic/Text';
 
 const styles = StyleSheet.create({
   errorText: {

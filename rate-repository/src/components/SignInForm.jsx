@@ -7,7 +7,7 @@ const SignInForm = ({onSubmit}) => {
       
           <View>
                 <FormikTextInput
-                    name='userName'
+                    name='username'
                     placeholder='Username'
                 />
                 <FormikTextInput
