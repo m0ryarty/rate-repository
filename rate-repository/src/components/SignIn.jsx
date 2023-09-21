@@ -1,24 +1,6 @@
-import { Formik } from 'formik';
-import * as yup from 'yup';
-import SignInForm from './SignInForm';
+import SignInContainer from './SigninContainer';
 import useSignIn from '../hooks/useSignIn';
-import { ActivityIndicator, View } from 'react-native';
-
 import { useNavigate } from 'react-router-native'
-
-const validationSchema = yup.object().shape({
-    username: yup
-        .string().required('Username is required'),
-    password: yup
-        .string()
-    .required('Password is required')
-})
-
-
-const initialValues = {
-    username: '',
-    password: ''
-}
 
 
 const SignIn = () => {
@@ -27,8 +9,7 @@ const SignIn = () => {
     const navigate = useNavigate()
 
   const onSubmit = async (values) => {
-      const { username, password } = values;
-      
+      const { username, password } = values;      
       
    
     try {
@@ -42,22 +23,12 @@ const SignIn = () => {
     };
 
     return (
-        <>
-        <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={onSubmit}
-        >
-            {({handleSubmit})=> <SignInForm onSubmit={handleSubmit}/>}
-            
-        </Formik>
-            {result.loading
-                && <View style={{ flex: 1, justifyContent: 'center' }}>
-              <ActivityIndicator size="large" />
-            </View>}
-        </>
+        <SignInContainer onSubmit={onSubmit} loading={result.loading} />
     )
+
     
 };
+
+
 
 export default SignIn;

@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
 
   blueText: {     
       textAlign: 'center',
-        backgroundColor: '#0366d6',
+        backgroundColor: '#cb80a2f8',
         color: 'white',
         maxWidth: '100%',
         padding: 10,
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 })
 
 const BlueText = ({ text }) => {
-  return <Text style={styles.blueText}>{text}</Text>
+  return <Text testID='repositoryItem' style={styles.blueText}>{text}</Text>
 
  
 }

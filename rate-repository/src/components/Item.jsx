@@ -68,15 +68,15 @@ const formattedNumber = (number) => {
 }
 
 const StatisticNumber = ({number}) => {
-return <Text style={styles.subHeadText}>{formattedNumber(number)}</Text>
+return <Text testID='repositoryItem' style={styles.subHeadText}>{formattedNumber(number)}</Text>
 }
 
 const SubHeadText = ({text}) => {
- return <Text style={styles.subHeadText}>{text}</Text>
+ return <Text testID='repositoryItem' style={styles.subHeadText}>{text}</Text>
 }
 
 const NormalText = ({text}) => {
-  return <Text style={styles.normalText}>{text}</Text>
+  return <Text testID='repositoryItem' style={styles.normalText}>{text}</Text>
 }
 
 const Statistics = ({number, text}) => {
@@ -105,7 +105,7 @@ const Item = ({ repoList }) => {
         </View>
         
         <View style={styles.textContainer}> 
-          <SubHeadText text={repoList.name } />    
+          <SubHeadText text={repoList.fullName } />    
           <NormalText text={repoList.description} />
           <BlueText text={ repoList.language} />              
         </View>
@@ -114,18 +114,22 @@ const Item = ({ repoList }) => {
 
       <View style={styles.statisticContainer}>
         <Statistics
+        
           number={repoList.stargazersCount}
           text={'Stars'}
         />
         <Statistics
+        
           number={repoList.forksCount}
           text={'Forks'}
         />
         <Statistics
+        
           number={repoList.reviewCount}
           text={'Reviews'}
         />
         <Statistics
+        
           number={repoList.ratingAverage}
           text={'Rating'}
         />        

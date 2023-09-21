@@ -5,15 +5,18 @@ query Repositories {
   repositories {
     edges {
       node {
-        ownerAvatarUrl
+        id
         name
+        ownerName
+        createdAt
+        fullName
+        reviewCount
+        ratingAverage
+        forksCount
+        stargazersCount
         description
         language
-        stargazersCount
-        reviewCount
-        forksCount
-        ratingAverage
-        ownerName
+        ownerAvatarUrl
       }
     }
   }
