@@ -90,7 +90,7 @@ const Statistics = ({number, text}) => {
 
 
 
-const Item = ({ repoList }) => {  
+const Item = ({ repositoryData, gitButton, onPress }) => {  
   
   return (
     <View style={styles.container}>
@@ -99,15 +99,15 @@ const Item = ({ repoList }) => {
           <Image
             style={styles.tinyImage}
             source={{
-            uri: `${repoList.ownerAvatarUrl}`,
+            uri: `${repositoryData.ownerAvatarUrl}`,
             }}
           />
         </View>
         
         <View style={styles.textContainer}> 
-          <SubHeadText text={repoList.fullName } />    
-          <NormalText text={repoList.description} />
-          <BlueText text={ repoList.language} />              
+          <SubHeadText text={repositoryData.fullName } />    
+          <NormalText text={repositoryData.description} />
+          <BlueText text={ repositoryData.language} />              
         </View>
 
       </View>
@@ -115,26 +115,26 @@ const Item = ({ repoList }) => {
       <View style={styles.statisticContainer}>
         <Statistics
         
-          number={repoList.stargazersCount}
+          number={repositoryData.stargazersCount}
           text={'Stars'}
         />
         <Statistics
         
-          number={repoList.forksCount}
+          number={repositoryData.forksCount}
           text={'Forks'}
         />
         <Statistics
         
-          number={repoList.reviewCount}
+          number={repositoryData.reviewCount}
           text={'Reviews'}
         />
         <Statistics
         
-          number={repoList.ratingAverage}
+          number={repositoryData.ratingAverage}
           text={'Rating'}
         />        
       </View>
-      
+      {gitButton && <BlueText onPress={onPress} text='Open in GitHub'/>}
     </View>
     )
 };

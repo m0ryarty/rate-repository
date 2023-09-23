@@ -33,7 +33,9 @@ fetchPolicy: 'cache-and-network'
     <ScrollView horizontal style={theme.tabContainer}>
       {result.data.me
         ?<>
-          <AppBarTab tabTitle= 'Repositories' to='/repository-list' />          
+          <AppBarTab tabTitle= 'Repositories' to='repository/list' />          
+          
+          
           < AppBarTab tabTitle='Sign Out' onPress={signOut} />
         </>
         : < AppBarTab tabTitle='Sign In' to='/' />

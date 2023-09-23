@@ -31,3 +31,39 @@ query Query {
   }
 }
 `
+
+export const REPOSITORY = gql`
+query Repositories($repositoryId: ID!) {
+  repository(id: $repositoryId) {
+     url
+    stargazersCount
+    forksCount
+    reviewCount
+    ratingAverage
+    language
+    description
+    fullName
+    ownerAvatarUrl
+  }
+}
+`
+
+export const REVIEWS = gql`
+  query Query($repositoryId: ID!) {
+  repository(id: $repositoryId) {
+    reviews {
+      edges {
+        node {
+          createdAt
+          user {
+            createdAt
+            username
+          }
+          rating
+          text
+        }
+      }
+    }
+  }
+}
+`

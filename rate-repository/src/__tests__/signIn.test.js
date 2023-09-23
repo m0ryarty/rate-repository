@@ -3,7 +3,7 @@ import SignInContainer from '../components/SigninContainer';
 
  
 
-describe('Form', () => {
+describe('Sign in form', () => {
   it('calls function provided by onSubmit prop after pressing the submit button', async ()  => {
     const onSubmit = jest.fn();
     render(<SignInContainer onSubmit={onSubmit} loading={false} />);
