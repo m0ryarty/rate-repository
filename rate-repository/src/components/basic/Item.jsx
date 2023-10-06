@@ -4,9 +4,9 @@ import {
   StyleSheet,  
   Image
 } from 'react-native';
-import Text from './basic/Text'
-import BlueText from './basic/BlueText';
-import theme from '../theme';
+import Text from './Text'
+import BlueText from './BlueText';
+import theme from '../../theme';
 
 const styles = StyleSheet.create({
   separator: {

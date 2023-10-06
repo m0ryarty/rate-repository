@@ -1,33 +1,61 @@
 import { gql } from '@apollo/client'
 
 export const ALL_REPOSITORIES = gql`
-query Repositories {
-  repositories {
+query Query($first:Int, $after: String, $orderDirection: OrderDirection, $orderBy: AllRepositoriesOrderBy, $searchKeyword: String) {
+  repositories(first: $first, after:$after orderDirection: $orderDirection, orderBy: $orderBy, searchKeyword: $searchKeyword) {
+    totalCount
     edges {
       node {
         id
-        name
-        ownerName
-        createdAt
         fullName
-        reviewCount
-        ratingAverage
-        forksCount
-        stargazersCount
+        createdAt
         description
         language
+        stargazersCount
+        forksCount
+        reviewCount
+        ratingAverage
         ownerAvatarUrl
       }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
     }
   }
 }
 `
 
 export const ME = gql`
-query Query {
+query Query($first: Int, $after: String, $includeReviews: Boolean! = false) {
   me {
-    id
     username
+    id
+    reviews(
+      first: $first,
+      after: $after
+      )
+      @include(if: $includeReviews) {
+      pageInfo {
+        endCursor
+        startCursor
+        hasNextPage
+      }
+      edges {
+        cursor
+        node {
+          id
+          rating
+          text
+          repository {
+            fullName
+            createdAt
+          }
+        }
+      }
+    }
   }
 }
 `
@@ -49,21 +77,33 @@ query Repositories($repositoryId: ID!) {
 `
 
 export const REVIEWS = gql`
-  query Query($repositoryId: ID!) {
+  query Query($repositoryId: ID!, $first: Int, $after: String) {
   repository(id: $repositoryId) {
-    reviews {
+    fullName
+    id
+    reviews(first: $first, after: $after) {
+      totalCount
       edges {
         node {
           createdAt
-          user {
-            createdAt
-            username
-          }
+          id
           rating
           text
+          user {
+            username
+            id
+          }
+          repositoryId
         }
+        cursor
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+        startCursor
       }
     }
   }
 }
 `
+

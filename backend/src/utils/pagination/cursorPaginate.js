@@ -91,6 +91,8 @@ const cursorPaginate = async (
     endCursor: edges.length > 0 ? edges[edges.length - 1].cursor : null,
   };
 
+  console.log(pageInfo);
+
   return {
     totalCount,
     edges,

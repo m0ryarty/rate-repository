@@ -1,5 +1,5 @@
 import SignInContainer from './SigninContainer';
-import useSignIn from '../hooks/useSignIn';
+import useSignIn from '../../hooks/useSignIn';
 import { useNavigate } from 'react-router-native'
 
 
@@ -15,7 +15,7 @@ const SignIn = () => {
     try {
         await signIn({ username, password });
        
-      navigate('repository/list')
+      navigate('/repository/list')
         
     } catch (e) {
       console.log(e);

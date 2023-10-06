@@ -1,6 +1,6 @@
 import { View, ActivityIndicator } from "react-native"
-import useRepository from "../hooks/useRepository"
-import Item from "./Item"
+import useRepository from "../../hooks/useRepository"
+import Item from "../basic/Item"
 import * as Linking from 'expo-linking'
 
 

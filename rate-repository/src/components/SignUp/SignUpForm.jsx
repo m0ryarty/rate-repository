@@ -1,8 +1,8 @@
 import { View, Button } from 'react-native';
 
-import FormikTextInput from './FormikTextInput'
+import FormikTextInput from '../basic/FormikTextInput'
 
-const SignInForm = ({onSubmit}) => {
+const SignUpForm = ({onSubmit}) => {
   return (
       
           <View>
@@ -15,10 +15,15 @@ const SignInForm = ({onSubmit}) => {
                     name='password'
                     placeholder='Password'
                 />
+                <FormikTextInput
+                    secureTextEntry
+                    name='confirmation'
+                    placeholder='Password Confirmation'
+                />
                 
               <Button
                 onPress={onSubmit}  
-                title="Sign In"
+                title="Sign Up"
                 color="#0366d6"
             />
                 
@@ -27,4 +32,4 @@ const SignInForm = ({onSubmit}) => {
   )
 }
 
-export default SignInForm
+export default SignUpForm

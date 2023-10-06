@@ -41,7 +41,7 @@ const ReviewItem = ({ item }) => {
                   
               </View>
               <View>
-                <Text style={{padding:10, width:'23%'}}>{ item.text }</Text> 
+                <Text style={{padding:10}}>{ item.text }</Text> 
                   
               </View>
           </View>

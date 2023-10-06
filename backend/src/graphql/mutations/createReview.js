@@ -50,6 +50,7 @@ const argsSchema = yup.object().shape({
 export const resolvers = {
   Mutation: {
     createReview: async (obj, args, { authService }) => {
+      console.log('args: ', args);
       const currentUser = await authService.getUserOrFail();
 
       const { review } = await argsSchema.validate(args, {
